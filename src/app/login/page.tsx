@@ -4,24 +4,15 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import { login } from "@/app/actions/auth";
 import { useActionState } from "react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [state, formAction, isPending] = useActionState(login, null);
-
-  useEffect(() => {
-    if (state && 'success' in state && state.success) {
-      router.push("/dashboard");
-    }
-  }, [state, router]);
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-md">
       <h1 className="text-3xl font-bold text-center mb-6">Log In to Your Account</h1>
 
-      {state && 'error' in state && (
+      {state && "error" in state && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {state.error}
         </div>
@@ -29,7 +20,9 @@ export default function LoginPage() {
 
       <form action={formAction} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+          <label htmlFor="email" className="block mb-2 font-medium">
+            Email
+          </label>
           <input
             type="email"
             id="email"
@@ -39,7 +32,9 @@ export default function LoginPage() {
           />
         </div>
         <div>
-          <label htmlFor="password" className="block mb-2 font-medium">Password</label>
+          <label htmlFor="password" className="block mb-2 font-medium">
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -63,7 +58,9 @@ export default function LoginPage() {
       </form>
       <p className="text-center mt-4 text-sm">
         Don't have an account?{" "}
-        <Link href="/signup" className="text-blue-600 hover:underline">Sign up</Link>
+        <Link href="/signup" className="text-blue-600 hover:underline">
+          Sign up
+        </Link>
       </p>
     </div>
   );

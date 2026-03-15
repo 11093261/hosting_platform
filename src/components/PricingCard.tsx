@@ -31,7 +31,7 @@ export default function PricingCard({ plan }: PricingCardProps) {
         ))}
       </ul>
       <Button variant={plan.isPopular ? "primary" : "secondary"} className="w-full">
-        Choose Plan
+        {plan.cta || "Choose Plan"}
       </Button>
     </div>
   );

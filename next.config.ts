@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-  turbopack: {
-    root: process.cwd(), // tells Turbopack to use the current directory as the root
-  },
+  turbopack: {}, // or just remove turbopack if not needed
 };
 
 export default nextConfig;
